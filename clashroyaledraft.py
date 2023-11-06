@@ -235,10 +235,10 @@ def mega2v2():
         card = availablecards[random.randint(0,len(availablecards)-1)]
         choices.append(card)
         availablecards.remove(card)
-    cardcount = 0
     random.shuffle(choices)
     
     for nums in range(0,4):
+        cardcount = 0
         for rows in range(0,6):
             print(choices[cardcount:cardcount+6], sep=',')
             cardcount+=6    
@@ -292,3 +292,4 @@ def mega2v2():
         choice1 = input()
         choices.remove(choice1)
         p1deck.append(choice1)
+        #deez
