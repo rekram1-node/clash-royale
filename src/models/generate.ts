@@ -1,5 +1,5 @@
 import { writeFileSync } from 'fs';
-import { Convert, Cards } from './generated/types';
+import { Convert, Cards } from './generated/cards';
 import { readFileSync } from 'fs';
 
 const excludeList: string[] = [
@@ -46,5 +46,5 @@ function sanitizeVariableName(name: string): string {
 }
 
 // Example usage:
-const jsonStr = readFileSync('src/cards/response.json').toString();
-createTypeScriptFileFromJson(jsonStr, 'src/cards/generated/generated.ts');
+const jsonStr = readFileSync('src/models/response.json').toString();
+createTypeScriptFileFromJson(jsonStr, 'src/models/generated/generated.ts');
