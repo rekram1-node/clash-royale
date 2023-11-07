@@ -1,6 +1,6 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 dotenv: [".env.local", ".env"]
 
 vars:
@@ -11,9 +11,11 @@ tasks:
     cmds:
       - |-
         API_ENDPOINT="https://api.clashroyale.com/v1/cards"
-        OUTPUT_FILE="src/cards/response.json"  
+        OUTPUT_FILE="src/models/response.json"  
         curl -H "Authorization: Bearer $API_KEY" "$API_ENDPOINT" -o "$OUTPUT_FILE"
-        quicktype "$OUTPUT_FILE" -o src/cards/generated/types.ts
+        quicktype "$OUTPUT_FILE" -o src/models/generated/types.ts
+        npx tsx src/models/generate.ts
+        rm "$OUTPUT_FILE"
     preconditions:
       - sh: test -n "$API_KEY"
         msg: Set API_KEY environment variable
@@ -23,7 +25,6 @@ tasks:
     #   - task: update-card-types
     cmds:
       - npx tsx src/cards/generate.ts
-    
 
   default:
     cmds:
