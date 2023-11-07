@@ -4,151 +4,57 @@ export interface MegaDraft {
     cards: cards.Card[],
 }
 
-const cycle: cards.Card[] = [
-    cards.Skeletons,
-    cards.IceSpirit,
-    cards.FireSpirit,
-    cards.HealSpirit,
-    cards.ElectroSpirit
-]
+function isCard(object: any): object is cards.Card {
+    return 'classification' in object;
+}
 
-const swarm: cards.Card[] = [
-    cards.Goblins,
-    cards.Barbarians,
-    cards.SkeletonArmy,
-    cards.SpearGoblins,
-    cards.MinionHorde,
-    cards.GoblinGang,
-    cards.RoyalRecruits,
-    cards.Bats,
-    cards.WallBreakers
-]
+const misc: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.Misc
+)
 
-const misc: cards.Card[] = [
-    cards.Rage,
-    cards.Clone,
-    cards.Freeze,
-    cards.Mirror
-];
+const cycle: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.Cycle
+)
 
-const champions: cards.Card[] = [
-    cards.ArcherQueen,
-    cards.GoldenKnight,
-    cards.MightyMiner,
-    cards.LittlePrince,
-    cards.SkeletonKing,
-    cards.Monk
-];
+const swarm: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.Swarm
+)
 
-const aoe: cards.Card[] = [
-    cards.Witch,
-    cards.Valkyrie,
-    cards.Bomber,
-    cards.BabyDragon,
-    cards.Princess,
-    cards.DarkPrince,
-    cards.Bowler,
-    cards.Executioner,
-    cards.MegaKnight,
-    cards.Firecracker,
-    cards.RoyalDelivery
-];
+const champions: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.Champion
+)
 
-const winConditions: cards.Card[] = [
-    cards.Giant,
-    cards.PEKKA,
-    cards.Balloon,
-    cards.Golem,
-    cards.HogRider,
-    cards.RoyalGiant,
-    cards.ThreeMusketeers,
-    cards.LavaHound,
-    cards.Miner,
-    cards.BattleRam,
-    cards.EliteBarbarians,
-    cards.RamRider,
-    cards.SkeletonBarrel,
-    cards.RoyalHogs,
-    cards.GoblinGiant,
-    cards.ElixirGolem,
-    cards.ElectroGiant,
-    cards.Mortar,
-    cards.XBow,
-    cards.GoblinDrill,
-    cards.GoblinBarrel,
-    cards.Graveyard
-];
+const aoe: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.AoE
+)
 
-const tankKillers: cards.Card[] = [
-    cards.MiniPEKKA,
-    cards.Sparky,
-    cards.InfernoDragon,
-    cards.Lumberjack,
-    cards.Hunter
-];
+const winConditions: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.WinCondition
+)
 
-const defensiveBuildings: cards.Card[] = [
-    cards.Cannon,
-    cards.GoblinHut,
-    cards.Tesla,
-    cards.InfernoTower,
-    cards.GoblinCage,
-    cards.Furnace,
-    cards.BarbarianHut,
-    cards.BombTower,
-    cards.ElixirCollector,
-    cards.Tombstone
-];
+const tankKillers: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.TankKiller
+)
 
-const defensiveTroops: cards.Card[] = [
-    cards.Knight,
-    cards.Minions,
-    cards.Prince,
-    cards.GiantSkeleton,
-    cards.Guards,
-    cards.IceGolem,
-    cards.MegaMinion,
-    cards.Bandit,
-    cards.RoyalGhost,
-    cards.Zappies,
-    cards.Rascals,
-    cards.CannonCart,
-    cards.Fisherman,
-    cards.BattleHealer,
-    cards.Phoenix
-];
+const defensiveBuildings: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.DefensiveBuilding
+)
 
-const antiSwarmSpells: cards.Card[] = [
-    cards.Arrows,
-    cards.Zap,
-    cards.Poison,
-    cards.TheLog,
-    cards.Tornado,
-    cards.BarbarianBarrel,
-    cards.Snowball
-];
+const defensiveTroops: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.DefensiveTroop
+)
 
-const damageSpell: cards.Card[] = [
-    cards.Fireball,
-    cards.Lightning,
-    cards.Rocket,
-    cards.Earthquake
-];
+const antiSwarmSpells: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.AntiSwarmSpell
+)
 
-const supportTroops: cards.Card[] = [
-    cards.Musketeer,
-    cards.Wizard,
-    cards.IceWizard,
-    cards.DartGoblin,
-    cards.ElectroWizard,
-    cards.NightWitch,
-    cards.FlyingMachine,
-    cards.MagicArcher,
-    cards.ElectroDragon,
-    cards.SkeletonDragons,
-    cards.MotherWitch,
-    cards.Archers
-];
+const damageSpell: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.DamageSpell
+)
+
+const supportTroops: cards.Card[] = Object.values(cards).filter(
+    (card): card is cards.Card => isCard(card) && card.classification === cards.Classifications.SupportTroop
+)
 
 const miscCount = 1;
 const championCount = 3;
