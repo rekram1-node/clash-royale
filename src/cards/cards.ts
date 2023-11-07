@@ -2,11 +2,9 @@ import * as generated from './generated/generated';
 
 export enum Classifications {
     Cycle,
-    Spam,
     Swarm,
     WinCondition,
     Champion,
-    GlassCannon,
     TankKiller,
     AoE,
     DefensiveBuilding,
@@ -14,10 +12,8 @@ export enum Classifications {
     DamageSpell,
     DefensiveTroop,
     SupportTroop,
-    PushTroop,
-    // spawners and funny spells
+    // funny spells
     Misc,
-    _,
 }
 
 export interface Card {
@@ -27,7 +23,6 @@ export interface Card {
     elixirCost: number,
     classification: Classifications,
 }
-
 
 export const Knight: Card = {
     iconUrl: generated.Knight.iconUrls.medium,
@@ -46,7 +41,7 @@ export const Archers: Card = {
 export const Goblins: Card = {
     iconUrl: generated.Goblins.iconUrls.medium,
     elixirCost: 2,
-    classification: Classifications.Spam,
+    classification: Classifications.Swarm,
     ...generated.Goblins
 };
 
@@ -130,7 +125,7 @@ export const Bomber: Card = {
 export const Musketeer: Card = {
     iconUrl: generated.Musketeer.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.Musketeer
 };
 
@@ -144,14 +139,14 @@ export const BabyDragon: Card = {
 export const Prince: Card = {
     iconUrl: generated.Prince.iconUrls.medium,
     elixirCost: 5,
-    classification: Classifications.PushTroop,
+    classification: Classifications.DefensiveTroop,
     ...generated.Prince
 };
 
 export const Wizard: Card = {
     iconUrl: generated.Wizard.iconUrls.medium,
     elixirCost: 5,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.Wizard
 };
 
@@ -165,7 +160,7 @@ export const MiniPEKKA: Card = {
 export const SpearGoblins: Card = {
     iconUrl: generated.SpearGoblins.iconUrls.medium,
     elixirCost: 2,
-    classification: Classifications.Spam,
+    classification: Classifications.Swarm,
     ...generated.SpearGoblins
 };
 
@@ -354,7 +349,7 @@ export const Executioner: Card = {
 export const Bandit: Card = {
     iconUrl: generated.Bandit.iconUrls.medium,
     elixirCost: 3,
-    classification: Classifications.PushTroop,
+    classification: Classifications.DefensiveTroop,
     ...generated.Bandit
 };
 
@@ -375,14 +370,14 @@ export const NightWitch: Card = {
 export const Bats: Card = {
     iconUrl: generated.Bats.iconUrls.medium,
     elixirCost: 2,
-    classification: Classifications.Spam,
+    classification: Classifications.Swarm,
     ...generated.Bats
 };
 
 export const RoyalGhost: Card = {
     iconUrl: generated.RoyalGhost.iconUrls.medium,
     elixirCost: 3,
-    classification: Classifications.PushTroop,
+    classification: Classifications.DefensiveTroop,
     ...generated.RoyalGhost
 };
 
@@ -410,7 +405,7 @@ export const Rascals: Card = {
 export const CannonCart: Card = {
     iconUrl: generated.CannonCart.iconUrls.medium,
     elixirCost: 5,
-    classification: Classifications.PushTroop,
+    classification: Classifications.DefensiveTroop,
     ...generated.CannonCart
 };
 
@@ -431,14 +426,14 @@ export const SkeletonBarrel: Card = {
 export const FlyingMachine: Card = {
     iconUrl: generated.FlyingMachine.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.FlyingMachine
 };
 
 export const WallBreakers: Card = {
     iconUrl: generated.WallBreakers.iconUrls.medium,
     elixirCost: 2,
-    classification: Classifications.Spam,
+    classification: Classifications.Swarm,
     ...generated.WallBreakers
 };
 
@@ -466,14 +461,14 @@ export const Fisherman: Card = {
 export const MagicArcher: Card = {
     iconUrl: generated.MagicArcher.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.MagicArcher
 };
 
 export const ElectroDragon: Card = {
     iconUrl: generated.ElectroDragon.iconUrls.medium,
     elixirCost: 5,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.ElectroDragon
 };
 
@@ -536,14 +531,14 @@ export const Monk: Card = {
 export const SkeletonDragons: Card = {
     iconUrl: generated.SkeletonDragons.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.SkeletonDragons
 };
 
 export const MotherWitch: Card = {
     iconUrl: generated.MotherWitch.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.GlassCannon,
+    classification: Classifications.SupportTroop,
     ...generated.MotherWitch
 };
 
@@ -585,7 +580,7 @@ export const Cannon: Card = {
 export const GoblinHut: Card = {
     iconUrl: generated.GoblinHut.iconUrls.medium,
     elixirCost: 5,
-    classification: Classifications.Misc,
+    classification: Classifications.DefensiveBuilding,
     ...generated.GoblinHut
 };
 
@@ -613,7 +608,7 @@ export const BombTower: Card = {
 export const BarbarianHut: Card = {
     iconUrl: generated.BarbarianHut.iconUrls.medium,
     elixirCost: 6,
-    classification: Classifications.Misc,
+    classification: Classifications.DefensiveBuilding,
     ...generated.BarbarianHut
 };
 
@@ -627,7 +622,7 @@ export const Tesla: Card = {
 export const ElixirCollector: Card = {
     iconUrl: generated.ElixirCollector.iconUrls.medium,
     elixirCost: 6,
-    classification: Classifications.Misc,
+    classification: Classifications.DefensiveBuilding,
     ...generated.ElixirCollector
 };
 
@@ -641,14 +636,14 @@ export const XBow: Card = {
 export const Tombstone: Card = {
     iconUrl: generated.Tombstone.iconUrls.medium,
     elixirCost: 3,
-    classification: Classifications.Misc,
+    classification: Classifications.DefensiveBuilding,
     ...generated.Tombstone
 };
 
 export const Furnace: Card = {
     iconUrl: generated.Furnace.iconUrls.medium,
     elixirCost: 4,
-    classification: Classifications.Misc,
+    classification: Classifications.DefensiveBuilding,
     ...generated.Furnace
 };
 
