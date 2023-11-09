@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit directly.
 
-import { Item } from './types';
+import { Item } from './cards';
 
 export const Knight: Item = {
   "name": "Knight",
@@ -716,7 +716,7 @@ export const LittlePrince: Item = {
   "id": 26000093,
   "maxLevel": 4,
   "iconUrls": {
-    "medium": "https://api-assets.clashroyale.com/cards/300/dY-gSseki6KBpkIG17safHH5YlB8SErFZO9OXbJxf9w.png"
+    "medium": "https://clashroyale.inbox.supercell.com/9jtsgmsiuthj/1UpPU2V4Wte5r3ff5Ofnwx/afaef695b98e546327187c3b0340e0ec/Little_Prince_card_frame_alpha.png"
   }
 };
 

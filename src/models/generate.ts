@@ -20,7 +20,7 @@ function createTypeScriptFileFromJson(jsonString: string, tsFilePath: string): v
 
     // Start the content of the TypeScript file
     let tsFileContent = `// This file is auto-generated. Do not edit directly.\n\n`;
-    tsFileContent += `import { Item } from './types';\n\n`;
+    tsFileContent += `import { Item } from './cards';\n\n`;
 
     // Iterate over the items and create export statements
     for (const item of cards.items) {
@@ -32,6 +32,9 @@ function createTypeScriptFileFromJson(jsonString: string, tsFilePath: string): v
             continue;
         if (item.name == "Royal Recruits" && item.maxEvolutionLevel == undefined)
             continue;
+        if (item.name == "Little Prince") {
+            item.iconUrls.medium = "https://clashroyale.inbox.supercell.com/9jtsgmsiuthj/1UpPU2V4Wte5r3ff5Ofnwx/afaef695b98e546327187c3b0340e0ec/Little_Prince_card_frame_alpha.png"
+        }
         const variableName = sanitizeVariableName(name);
         tsFileContent += `export const ${variableName}: Item = ${JSON.stringify(item, null, 2)};\n\n`;
     }

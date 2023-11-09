@@ -3,7 +3,7 @@ import { Card } from "@/models/cards"
 import styles from '../../styles/Grid.module.css';
 
 export default function MegaDraft() {
-    const newDraft = createMegaDraft();
+    const newDraft = createMegaDraft(false);
     return (
         <div className={styles.gridContainer}>
             {newDraft.cards.map((item: Card) => (

@@ -57,31 +57,41 @@ const supportTroops: cards.Card[] = Object.values(cards).filter(
 )
 
 const miscCount = 1;
+const tankKillerCount = 2;
+const antiSwarmSpellCount = 2;
 const championCount = 3;
 const cycleCount = 2;
 const aoeCount = 4;
 const WinConditionCount = 4;
 const swarmCount = 4;
-const tankKillerCount = 2;
 const defensiveBuildingCount = 4;
 const defensiveTroopCount = 4;
-const antiSwarmSpellCount = 2;
 const damageSpellCount = 2;
 const supportTroopCount = 4;
 
-export function createMegaDraft(): MegaDraft {
+export function createMegaDraft(useChamptions = true): MegaDraft {
+    let manipulatedMisc = miscCount;
+    let manipulatedChamp = championCount;
+    let manipulatedTankKiller = tankKillerCount;
+    let manipulatedAntiSwarm = antiSwarmSpellCount;
+    if (!useChamptions) {
+        manipulatedMisc += 1;
+        manipulatedChamp = 0;
+        manipulatedTankKiller += 1;
+        manipulatedAntiSwarm += 1;
+    }
     return {
         cards: [
-            ...getRandomUniqueItems(misc, miscCount),
-            ...getRandomUniqueItems(champions, championCount),
+            ...getRandomUniqueItems(misc, manipulatedMisc),
+            ...getRandomUniqueItems(champions, manipulatedChamp),
             ...getRandomUniqueItems(cycle, cycleCount),
             ...getRandomUniqueItems(aoe, aoeCount),
             ...getRandomUniqueItems(winConditions, WinConditionCount),
             ...getRandomUniqueItems(swarm, swarmCount),
-            ...getRandomUniqueItems(tankKillers, tankKillerCount),
+            ...getRandomUniqueItems(tankKillers, manipulatedTankKiller),
             ...getRandomUniqueItems(defensiveBuildings, defensiveBuildingCount),
             ...getRandomUniqueItems(defensiveTroops, defensiveTroopCount),
-            ...getRandomUniqueItems(antiSwarmSpells, antiSwarmSpellCount),
+            ...getRandomUniqueItems(antiSwarmSpells, manipulatedAntiSwarm),
             ...getRandomUniqueItems(damageSpell, damageSpellCount),
             ...getRandomUniqueItems(supportTroops, supportTroopCount),
         ]
@@ -89,6 +99,7 @@ export function createMegaDraft(): MegaDraft {
 }
 
 function getRandomUniqueItems<T>(arr: T[], count: number): T[] {
+    if (count == 0) return []
     let shuffledArray = [...arr]; // Clone the array to not mutate the original
     let m = shuffledArray.length;
     let t: T;
