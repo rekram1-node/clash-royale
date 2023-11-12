@@ -1,0 +1,20 @@
+Home Page:
+
+Create Mega Draft form... include champions bool
+
+after they click create w their options we redirect to a created megadraft lobby
+
+
+Lobby Page:
+
+lobby waits until 3 more people join and they pick a team, host auto joins left side team
+
+more after this.....
+
+
+Actual 2v2 Megadraft Page:
+* megadraft for each opposing pair
+* should have a bar at the bottom and top keeping track of picks
+* should have mini pick bars that the other 2 players are making too
+* need to be concerned with timeouts and randomly selecting cards....
+

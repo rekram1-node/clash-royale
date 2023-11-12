@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: "3"
+dotenv: [".env.local", ".env"]
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  update-card-types:
+    cmds:
+      - |-
+        API_ENDPOINT="https://api.clashroyale.com/v1/cards"
+        OUTPUT_FILE="src/models/response.json"  
+        curl -H "Authorization: Bearer $API_KEY" "$API_ENDPOINT" -o "$OUTPUT_FILE"
+        quicktype "$OUTPUT_FILE" -o src/models/generated/cards.ts
+    preconditions:
+      - sh: test -n "$API_KEY"
+        msg: Set API_KEY environment variable
+
+  update-cards:
+    deps:
+      - task: update-card-types
+    cmds:
+      - npx tsx src/models/generate.ts
+      - rm src/models/response.json
+
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
